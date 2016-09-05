@@ -1,4 +1,3 @@
-from optparse import make_option
 from django.core.management.base import BaseCommand
 import os
 import string
@@ -17,12 +16,14 @@ class Command(BaseCommand):
     # This will be monkey-patched when runnning the tests
     BASE_DIR = os.getcwd()
 
-    option_list = BaseCommand.option_list + (
-        make_option('--replace',
-                    action='store_true',
-                    dest='replace',
-                    default=False,
-                    help='Replace the existing key'), )
+    def add_arguments(self, parser):
+        parser.add_argument(
+            '--replace',
+            action='store_true',
+            dest='replace',
+            default=False,
+            help='Replace the existing key'
+        )
 
     def handle(self, *args, **options):
 
