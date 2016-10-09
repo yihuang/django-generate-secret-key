@@ -2,6 +2,7 @@ Django generate-secret-key application
 ======================================
 
 .. image:: https://badge.fury.io/py/django_generate_secret_key.svg
+   :target: https://pypi.org/project/django-generate-secret-key/
 
 Simple Django application that adds a new command:
 
