@@ -29,3 +29,9 @@ You can avoid hardcoding the path of the key by using:
     # Use a separate file for the secret key
     with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
         SECRET_KEY = f.read().strip()
+
+You can install this package from PyPi:
+
+.. code:: bash
+   
+   pip install django-generate-secret-key
