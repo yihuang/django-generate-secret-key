@@ -30,8 +30,29 @@ You can avoid hardcoding the path of the key by using:
     with open(os.path.join(BASE_DIR, 'secretkey.txt')) as f:
         SECRET_KEY = f.read().strip()
 
+Install
+-------
+
 You can install this package from PyPi:
 
 .. code:: bash
    
    pip install django-generate-secret-key
+
+Then you will need to add it to the Django's `INSTALLED_APPS` setting:
+
+.. code:: python
+
+   INSTALLED_APPS = (
+      ...
+      'django_generate_secret_key',
+      ...
+   )
+   
+You can now use
+
+.. code:: bash
+
+   python manage.py generate_secret_key
+   
+Run this command once in your local environment, and every time you deploy your app (on the remote host), to make sure the file exists.
