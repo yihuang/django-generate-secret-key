@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
+from django.core.management.utils import get_random_secret_key
 import os
-import string
-
 
 class Command(BaseCommand):
     """
@@ -44,9 +43,7 @@ class Command(BaseCommand):
             # No key found
             pass
 
-        import random
-        generated_key = ''.join([random.SystemRandom().choice(string.ascii_letters + string.digits + string.punctuation)
-                                 for _ in range(50)])
+        generated_key = get_random_secret_key()
         secret = open(key_filepath, 'w')
         secret.write(generated_key)
         secret.close()
